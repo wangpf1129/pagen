@@ -21,9 +21,6 @@
 		}
 	},
 	"workers_dev": false,
-	"limits": {
-		"cpu_ms": 50000
-	},
 	"vars": {
 		"OPENROUTER_API_KEY": "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"
 	}
