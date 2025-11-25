@@ -1,0 +1,30 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "pagen",
+	"compatibility_date": "2025-08-03",
+	"main": "./src/index.tsx",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "pagen",
+			// "database_id": "fae5befb-3527-4925-ae4c-162415ceec12",
+			"database_id": "f509a36c-cbae-4f8c-b5d1-2d35af17ee63",
+			"experimental_remote": true
+		}
+	],
+	"observability": {
+		"logs": {
+			"enabled": true
+		}
+	},
+	"workers_dev": false,
+	"limits": {
+		"cpu_ms": 50000
+	},
+	"vars": {
+		"OPENROUTER_API_KEY": "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"
+	}
+}

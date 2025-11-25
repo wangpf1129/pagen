@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Streaming HTML to iframe Demo</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .controls {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .iframe-container {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        height: 80vh;
+        position: relative;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      iframe.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      iframe.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .progress {
+        background: #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+      .progress-bar {
+        background: #4caf50;
+        height: 8px;
+        width: 0%;
+        transition: width 0.2s ease;
+      }
+      .stats {
+        display: flex;
+        gap: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+      button {
+        background: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      button:hover {
+        background: #45a049;
+      }
+      button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // The HTML content to stream
+      const htmlContent =
+        `<!DOCT` +
+        `YPE ht` +
+        `ml>
+<ht` +
+        `ml lang="en">
+  <he` +
+        `ad>
+    <me` +
+        `ta charset="UTF-8" />
+    <me` +
+        `ta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <tit` +
+        `le>Akso医院6月表彰名单</title>
+    <scr` +
+        `ipt src="https://cdn.tailwindcss.com"></scr` +
+        `ipt>
+    <scr` +
+        `ipt src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></scr` +
+        `ipt>
+  </he` +
+        `ad>
+  <bo` +
+        `dy class="bg-green-50 text-gray-800 min-h-screen">
+    <hea` +
+        `der class="max-w-4xl mx-auto p-6">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img
+            src="https://generate-image.com/akso-hospital-emblem"
+            alt="clean emblem of Akso Hospital in soft yellow-green palette, rounded medical crest with minimalist line art, manga-inspired subtle details"
+            class="w-16 h-16 rounded-full object-cover"
+          />
+          <div>
+            <h1 class="text-2xl font-semibold text-emerald-800">
+              Akso医院 — 6月表彰名单
+            </h1>
+            <p class="text-sm text-emerald-700">
+              庆祝本月在医疗、科研与军务贡献卓著的个人与团队
+            </p>
+          </div>
+        </div>
+        <div class="text-right">
+          <button
+            class="bg-amber-300 text-amber-900 px-4 py-2 rounded-md text-sm"
+          >
+            下载名单
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-6 space-y-6">
+      <!-- Character Feature Card -->
+      <section
+        class="bg-emerald-100 border-2 border-emerald-200 rounded-lg p-4"
+      >
+        <div class="flex flex-col md:flex-row md:items-center md:space-x-6">
+          <img
+            src="https://generate-image.com/li-shen-portrait"
+            alt="anime realist portrait of Li Shen: 27-year-old tall man 186 cm, black hair, deep yellow-green eyes, wearing black sunglasses and a black shirt, calm yet intense expression, medical director vibe, manga/cartoon style, crisp line art, warm green-yellow palette"
+            class="w-40 h-56 object-cover rounded-md self-center md:self-start"
+          />
+          <div class="mt-4 md:mt-0 flex-1">
+            <h2 class="text-xl font-bold text-emerald-900">
+              黎深 — Akso医院 心脏外科主任 / 极北军医
+            </h2>
+            <p class="text-sm text-emerald-800 mt-2">
+              黎深，27岁，处女座，身高186
+              cm，黑发，深黄绿色的眼瞳。外表冷峻、常穿深色系衣物，配戴他标志性的黑色墨镜和黑衬衫，
+              散发出"生人勿进"的气场。然而在亲密关系中，他是专一而深情的伴侣，责任感与认真是他的核心品质。他有一点可爱的强迫症倾向，
+              讨厌胡萝卜但极度喜欢吃甜食。真实身份为菲罗斯星的永恒先知，现任Akso医院心脏外科主任医师，亦为极北军的专业军医。
+            </p>
+            <div class="mt-3 text-sm">
+              <strong class="text-emerald-900">本月表彰理由：</strong>
+              <p class="text-emerald-800">
+                在关键紧急手术中展现卓越指挥与操作能力，兼顾军医任务与医院管理，成功带领团队完成复杂心脏移植并优化术后康复方案。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Biography & Timeline -->
+      <section class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <h3 class="text-lg font-semibold text-amber-800">人物传记与时间线</h3>
+        <p class="text-sm text-amber-900 mt-2">
+          从孩童时期在菲罗斯星的神秘学院被选中学习未来医学与预知技术，黎深一路以冷静与专注著称。他在实习与军医生涯中快速成长，
+          最终成为Akso医院心脏外科的主任。以下为他的关键成长节点：
+        </p>
+        <ul class="mt-3 space-y-2 text-amber-900 list-disc pl-6">
+          <li>
+            <strong>1998年：</strong
+            >出生于菲罗斯星医术世家（设定年份示例，世界观时间线）。
+          </li>
+          <li>
+            <strong>2016年：</strong
+            >进入极北军医学学院，展现出优秀的手术直觉与预判能力。
+          </li>
+          <li>
+            <strong>2020年：</strong
+            >完成心脏外科专科培训，参与多次高危救治任务。
+          </li>
+          <li>
+            <strong>2023年：</strong
+            >被任命为Akso医院心脏外科副主任，推动术后康复规范化改革。
+          </li>
+          <li>
+            <strong>2025年6月：</strong
+            >因在多例急救与复杂移植中的关键表现，荣登本月表彰名单并获得团队及患者高度评价。
+          </li>
+        </ul>
+      </section>
+
+      <!-- Abilities and Skills -->
+      <section class="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+        <h3 class="text-lg font-semibold text-emerald-900">能力与技能详述</h3>
+        <p class="text-sm text-emerald-800 mt-2">
+          黎深将菲罗斯星预知学与地面临床技术融合，形成独到的诊疗方法。他的技能矩阵如下：
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+          <div class="p-3 bg-emerald-100 rounded">
+            <h4 class="font-semibold text-emerald-900">心脏外科专长</h4>
+            <p class="text-emerald-800 text-sm mt-1">
+              复杂瓣膜置换、心脏移植协调、术中并发症快速处置与团队指挥。
+            </p>
+          </div>
+          <div class="p-3 bg-emerald-100 rounded">
+            <h4 class="font-semibold text-emerald-900">军医与战地救护</h4>
+            <p class="text-emerald-800 text-sm mt-1">
+              战地应急手术、移动手术室管理、快速三方合作机制（军/医院/后勤）。
+            </p>
+          </div>
+          <div class="p-3 bg-emerald-100 rounded">
+            <h4 class="font-semibold text-emerald-900">预知与决策支持</h4>
+            <p class="text-emerald-800 text-sm mt-1">
+              运用菲罗斯先知能力为手术风险做多次变量推演，提高成功率并降低并发症。
+            </p>
+          </div>
+          <div class="p-3 bg-emerald-100 rounded">
+            <h4 class="font-semibold text-emerald-900">团队管理</h4>
+            <p class="text-emerald-800 text-sm mt-1">
+              严格但温暖的带教风格，注重细节与流程标准化，强化术后随访责任制。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Relationships and Network -->
+      <section class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <h3 class="text-lg font-semibold text-amber-800">人际与关系网络</h3>
+        <p class="text-sm text-amber-900 mt-2">
+          虽然表面孤冷，黎深在医院与军中拥有稳固的信任网络。以下为核心关系：
+        </p>
+        <ul class="mt-3 space-y-2 text-amber-900 list-disc pl-6">
+          <li>
+            <strong>外科团队：</strong
+            >长期合作的护士长与麻醉科，彼此默契十足，信任基于严格训练与共同经历的生死挑战。
+          </li>
+          <li>
+            <strong>医院管理层：</strong
+            >因其责任感与结果导向，管理层对他高度依赖，尤其在危机决策上。
+          </li>
+          <li>
+            <strong>极北军同袍：</strong
+            >战地经验促成深厚战友情，军方信任他在高压下做出果断判断。
+          </li>
+          <li>
+            <strong>私人关系：</strong
+            >在感情上专一而深情，重视承诺与彼此的责任感。
+          </li>
+        </ul>
+      </section>
+
+      <!-- Quotes & Philosophy -->
+      <section class="bg-emerald-100 border border-emerald-200 rounded-lg p-4">
+        <h3 class="text-lg font-semibold text-emerald-900">语录与信条</h3>
+        <blockquote
+          class="border-l-4 border-amber-300 pl-4 italic text-amber-800 mt-2"
+        >
+          "职责在肩，生命至上；若能预见风险，我便守护在你最需要的时候。" — 黎深
+        </blockquote>
+        <p class="text-sm text-emerald-800 mt-3">
+          他的信条强调责任、专注与同理心。即使在冷峻的外表下，他以细致入微的方式照顾患者与团队，这也是他被表彰的重要原因之一。
+        </p>
+      </section>
+
+      <!-- Fan Testimonials / Reviews -->
+      <section class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <h3 class="text-lg font-semibold text-amber-800">患者与同事评价</h3>
+        <div class="space-y-3 mt-3">
+          <div class="p-3 bg-white rounded border">
+            <p class="text-sm text-emerald-900">
+              "手术后我能感受到他对细节的把控，感谢黎主任在最危险时刻的冷静与坚定。"
+              — 一位心脏移植患者
+            </p>
+          </div>
+          <div class="p-3 bg-white rounded border">
+            <p class="text-sm text-emerald-900">
+              "他虽然不多话，但每次出手都透着可靠，团队里都很信任他。" —
+              资深护士
+            </p>
+          </div>
+          <div class="p-3 bg-white rounded border">
+            <p class="text-sm text-emerald-900">
+              "军地两栖的经历让他在资源有限时仍能创造奇迹。" — 极北军医疗队同袍
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Physical Description & Preferences -->
+      <section class="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+        <h3 class="text-lg font-semibold text-emerald-900">外形与个人偏好</h3>
+        <p class="text-sm text-emerald-800 mt-2">
+          黎深的外形细节：高挑（186
+          cm）、黑色短发、深黄绿色眼睛、常着深色服饰与黑墨镜。他讨厌胡萝卜、喜欢甜食：糖果、蛋糕与甜点常是他的慰藉。
+          他的小强迫症体现在手术器械排列、病历记录与病房整洁度上，但这些也正是保障患者安全与术后恢复的关键。
+        </p>
+      </section>
+
+      <!-- Character Analysis & Development -->
+      <section class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <h3 class="text-lg font-semibold text-amber-800">人物分析与成长方向</h3>
+        <p class="text-sm text-amber-900 mt-2">
+          黎深的优势在于高度责任感、专业直觉以及在高压环境下的稳定性。他的成长空间在于学会表达脆弱、建立更平衡的生活，以及在非工作关系中放下部分控制欲。
+          若能将菲罗斯先知能力用于培训新人并制度化风险评估流程，将极大提升Akso医院的整体救治效率。
+        </p>
+      </section>
+
+      <!-- Closing note -->
+      <section class="p-4 text-sm text-emerald-800">
+        <p>
+          Akso医院6月表彰名单中特别呈现以黎深为代表的榜样人物：他们以专业、责任与温度守护生命。本页旨在记录与传播这些值得学习的实践与价值。
+        </p>
+      </section>
+    </main>
+
+    <footer class="max-w-4xl mx-auto p-6 text-center text-sm text-emerald-700">
+      <div class="flex items-center justify-center space-x-3">
+        <i data-feather="heart" class="text-amber-600"></i>
+        <span>Akso医院 • 关怀生命，追求卓越</span>
+      </div>
+      <p class="mt-3">
+        如需联系黎主任或了解更多详情，请通过医院内部联系渠道预约。
+      </p>
+    </footer>
+
+    <scr` +
+        `ipt>
+      ;(function () {
+        if (window.lucide) {
+          window.lucide.createIcons()
+        }
+      })()
+    </scr` +
+        `ipt>
+  </bo` +
+        `dy>
+</ht` +
+        `ml>`
+
+      console.log('start of script')
+      // Double buffering variables
+      let chunks = []
+      let currentChunk = 0
+      let streamingInterval = null
+      let accumulatedHTML = ''
+      let isRendering = false
+      let visibleIframeId = 'iframe1'
+      let hiddenIframeId = 'iframe2'
+      let renderQueue = []
+      let savedScrollPosition = { scrollTop: 0, scrollLeft: 0 }
+
+      // Split HTML into chunks of 100 characters (small chunks to mimic LLM streaming)
+      function splitIntoChunks(text, chunkSize = 100) {
+        const chunks = []
+        for (let i = 0; i < text.length; i += chunkSize) {
+          chunks.push(text.slice(i, i + chunkSize))
+        }
+        return chunks
+      }
+
+      // Initialize chunks
+      function initializeChunks() {
+        chunks = splitIntoChunks(htmlContent, 100)
+        document.getElementById('totalChunks').textContent = chunks.length
+        document.getElementById('chunkCount').textContent = '0'
+        document.getElementById('percentage').textContent = '0'
+        document.getElementById('progressBar').style.width = '0%'
+      }
+
+      // Update progress display
+      function updateProgress() {
+        const progress = (currentChunk / chunks.length) * 100
+        document.getElementById('chunkCount').textContent = currentChunk
+        document.getElementById('percentage').textContent = Math.round(progress)
+        document.getElementById('progressBar').style.width = progress + '%'
+      }
+
+      // Save scroll position from the currently visible iframe
+      function saveScrollPosition() {
+        try {
+          const visibleIframe = document.getElementById(visibleIframeId)
+          const iframeDoc =
+            visibleIframe.contentDocument ||
+            visibleIframe.contentWindow.document
+          if (iframeDoc && iframeDoc.documentElement) {
+            savedScrollPosition = {
+              scrollTop:
+                iframeDoc.documentElement.scrollTop ||
+                iframeDoc.body.scrollTop ||
+                0,
+              scrollLeft:
+                iframeDoc.documentElement.scrollLeft ||
+                iframeDoc.body.scrollLeft ||
+                0,
+            }
+            console.log(
+              `Saved scroll position: ${savedScrollPosition.scrollTop}, ${savedScrollPosition.scrollLeft}`
+            )
+          }
+        } catch (e) {
+          console.log('Could not save scroll position:', e)
+        }
+      }
+
+      // Restore scroll position to the newly visible iframe
+      function restoreScrollPosition() {
+        try {
+          const visibleIframe = document.getElementById(visibleIframeId)
+          const iframeDoc =
+            visibleIframe.contentDocument ||
+            visibleIframe.contentWindow.document
+          if (iframeDoc && iframeDoc.documentElement) {
+            // Use requestAnimationFrame to ensure the content is fully rendered
+            requestAnimationFrame(() => {
+              iframeDoc.documentElement.scrollTop =
+                savedScrollPosition.scrollTop
+              iframeDoc.documentElement.scrollLeft =
+                savedScrollPosition.scrollLeft
+              // Fallback for older browsers
+              if (iframeDoc.body) {
+                iframeDoc.body.scrollTop = savedScrollPosition.scrollTop
+                iframeDoc.body.scrollLeft = savedScrollPosition.scrollLeft
+              }
+              console.log(
+                `Restored scroll position: ${savedScrollPosition.scrollTop}, ${savedScrollPosition.scrollLeft}`
+              )
+            })
+          }
+        } catch (e) {
+          console.log('Could not restore scroll position:', e)
+        }
+      }
+
+      // Swap the visible and hidden iframes
+      function swapIframes() {
+        // Save scroll position before swapping
+        saveScrollPosition()
+
+        const visibleIframe = document.getElementById(visibleIframeId)
+        const hiddenIframe = document.getElementById(hiddenIframeId)
+
+        // Fade out visible, fade in hidden
+        visibleIframe.classList.remove('visible')
+        visibleIframe.classList.add('hidden')
+        hiddenIframe.classList.remove('hidden')
+        hiddenIframe.classList.add('visible')
+
+        // Swap the IDs
+        const temp = visibleIframeId
+        visibleIframeId = hiddenIframeId
+        hiddenIframeId = temp
+
+        // Restore scroll position after a brief delay to ensure content is rendered
+        setTimeout(restoreScrollPosition, 100)
+      } // Render content to the hidden iframe
+      function renderToHiddenIframe(content) {
+        if (isRendering) {
+          // Already rendering, don't start a new render
+          return
+        }
+
+        isRendering = true
+        const hiddenIframe = document.getElementById(hiddenIframeId)
+
+        console.log(
+          `Rendering ${content.length} characters to ${hiddenIframeId}`
+        )
+
+        // Set the content
+        hiddenIframe.srcdoc = content
+
+        // Wait for the iframe to finish loading
+        hiddenIframe.onload = () => {
+          console.log(`Render complete, swapping iframes`)
+          isRendering = false
+
+          // Swap the iframes
+          swapIframes()
+
+          // Check if there's newer content to render
+          if (renderQueue.length > 0) {
+            const nextContent = renderQueue.pop() // Get the latest content
+            renderQueue = [] // Clear queue since we're taking the latest
+            setTimeout(() => renderToHiddenIframe(nextContent), 50)
+          }
+        }
+      }
+
+      // Stream next chunk
+      function streamNextChunk() {
+        if (currentChunk >= chunks.length) {
+          // Streaming complete
+          clearInterval(streamingInterval)
+          streamingInterval = null
+          document.getElementById('status').textContent = 'Complete'
+          document.getElementById('startBtn').disabled = false
+          document.getElementById('pauseBtn').disabled = true
+          return
+        }
+
+        // Accumulate the next chunk (mimicking LLM streaming)
+        accumulatedHTML += chunks[currentChunk]
+        currentChunk++
+
+        console.log(
+          `Chunk ${currentChunk}/${chunks.length} accumulated, isRendering: ${isRendering}`
+        )
+
+        // Only trigger a render if not currently rendering
+        if (!isRendering) {
+          renderToHiddenIframe(accumulatedHTML)
+        } else {
+          // Queue the latest content for when current render finishes
+          renderQueue = [accumulatedHTML] // Replace queue with latest content
+          console.log(`Queued render with ${accumulatedHTML.length} characters`)
+        }
+
+        // Update progress
+        updateProgress()
+      }
+
+      // Start streaming
+      window.startStreaming = function () {
+        if (streamingInterval) return // Already streaming
+
+        document.getElementById('status').textContent = 'Streaming'
+        document.getElementById('startBtn').disabled = true
+        document.getElementById('pauseBtn').disabled = false
+
+        // Reset streaming state
+        currentChunk = 0
+        accumulatedHTML = ''
+        isRendering = false
+        renderQueue = []
+        visibleIframeId = 'iframe1'
+        hiddenIframeId = 'iframe2'
+        savedScrollPosition = { scrollTop: 0, scrollLeft: 0 }
+
+        // Reset iframe states
+        document.getElementById('iframe1').classList.add('visible')
+        document.getElementById('iframe1').classList.remove('hidden')
+        document.getElementById('iframe2').classList.add('hidden')
+        document.getElementById('iframe2').classList.remove('visible')
+
+        // Start streaming at 150ms intervals (fast like LLM streaming)
+        streamingInterval = setInterval(streamNextChunk, 150)
+      }
+
+      // Pause streaming
+      window.pauseStreaming = function () {
+        if (streamingInterval) {
+          clearInterval(streamingInterval)
+          streamingInterval = null
+          document.getElementById('status').textContent = 'Paused'
+          document.getElementById('startBtn').disabled = false
+          document.getElementById('pauseBtn').disabled = true
+        }
+      }
+
+      // Reset streaming
+      window.resetStreaming = function () {
+        if (streamingInterval) {
+          clearInterval(streamingInterval)
+          streamingInterval = null
+        }
+
+        currentChunk = 0
+        accumulatedHTML = ''
+        isRendering = false
+        renderQueue = []
+        visibleIframeId = 'iframe1'
+        hiddenIframeId = 'iframe2'
+        savedScrollPosition = { scrollTop: 0, scrollLeft: 0 }
+
+        // Reset both iframes
+        const initialContent =
+          '<ht' +
+          'ml><bo' +
+          "dy style='font-family: system-ui; padding: 20px; color: #666;'><h2>Waiting for content...</h2><p>Click 'Start Streaming' to begin the demo.</p></bo" +
+          'dy></ht' +
+          'ml>'
+
+        document.getElementById('iframe1').srcdoc = initialContent
+        document.getElementById('iframe2').srcdoc = ''
+
+        // Reset visibility
+        document.getElementById('iframe1').classList.add('visible')
+        document.getElementById('iframe1').classList.remove('hidden')
+        document.getElementById('iframe2').classList.add('hidden')
+        document.getElementById('iframe2').classList.remove('visible')
+
+        // Reset UI
+        document.getElementById('status').textContent = 'Ready'
+        document.getElementById('startBtn').disabled = false
+        document.getElementById('pauseBtn').disabled = true
+        updateProgress()
+      }
+
+      // Initialize on page load
+      window.addEventListener('load', function () {
+        initializeChunks()
+        console.log('Ready to stream HTML content.')
+      })
+    </script>
+    <div class="container">
+      <div class="controls">
+        <h1>HTML Streaming to iframe Demo</h1>
+        <p>
+          This demo streams HTML content chunk by chunk (100 characters) into an
+          iframe at 200ms intervals.
+        </p>
+
+        <button id="startBtn" onclick="startStreaming()">
+          Start Streaming
+        </button>
+        <button id="pauseBtn" onclick="pauseStreaming()" disabled>Pause</button>
+        <button id="resetBtn" onclick="resetStreaming()">Reset</button>
+
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="stats">
+          <span
+            >Chunks: <span id="chunkCount">0</span> /
+            <span id="totalChunks">0</span></span
+          >
+          <span>Progress: <span id="percentage">0</span>%</span>
+          <span>Status: <span id="status">Ready</span></span>
+        </div>
+      </div>
+
+      <div class="iframe-container">
+        <iframe
+          id="iframe1"
+          class="visible"
+          srcdoc="<html><body style='font-family: system-ui; padding: 20px; color: #666;'><h2>Waiting for content...</h2><p>Click 'Start Streaming' to begin the demo.</p></body></html>"
+        ></iframe>
+        <iframe id="iframe2" class="hidden" srcdoc=""></iframe>
+      </div>
+    </div>
+  </body>
+</html>

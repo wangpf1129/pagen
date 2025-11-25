@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akso医院6月表彰名单</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      window.lucide?.createIcons()
+    </script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4CAF50', // Green primary
+              secondary: '#FFC107', // Yellow secondary
+              neutral: '#F9F9F9', // Light background
+              dark: '#333333', // Dark text
+            },
+            fontFamily: {
+              sans: ['Arial', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .text-shadow {
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .card-hover {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-neutral text-dark font-sans">
+    <!-- Header Section -->
+    <header class="bg-primary text-white py-8 px-4 md:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-shadow">
+          Akso医院6月表彰名单
+        </h1>
+        <p class="text-center mt-2 opacity-90">致敬医疗前线的卓越贡献者</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 md:py-12">
+      <!-- Character Spotlight -->
+      <section class="mb-12">
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+          <div class="md:w-1/3">
+            <img
+              src="https://generate-image.com/黎深-肖像"
+              alt="anime style portrait of a young man with black hair and deep yellow-green eyes, wearing black shirt and sunglasses, calm expression, professional medical doctor attire, manga art style"
+              class="w-full h-auto rounded-lg shadow-sm object-cover"
+            />
+          </div>
+          <div class="md:w-2/3">
+            <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">
+              黎深
+            </h2>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="flex items-center">
+                <i data-lucide="user" class="w-5 h-5 mr-2 text-secondary"></i>
+                <span>27岁 · 处女座</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="height" class="w-5 h-5 mr-2 text-secondary"></i>
+                <span>186CM · 黑发</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="eye" class="w-5 h-5 mr-2 text-secondary"></i>
+                <span>深黄绿色眼睛</span>
+              </div>
+              <div class="flex items-center">
+                <i data-lucide="medkit" class="w-5 h-5 mr-2 text-secondary"></i>
+                <span>心脏外科主任医师</span>
+              </div>
+            </div>
+            <p class="text-lg leading-relaxed">
+              黎深医生以其冷静专注的专业态度和近乎完美的手术技艺闻名于Akso医院。尽管外表散发着生人勿近的气场，但熟悉他的同事都知道，这位戴着墨镜的"冰山医生"内心却无比温柔深情，对患者和工作有着近乎偏执的责任感。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional Achievements -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+          <i data-lucide="award" class="w-6 h-6 mr-2 text-secondary"></i>
+          专业成就与贡献
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Card 1: Heart Surgeon -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 card-hover"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center"
+              >
+                <i data-lucide="heart" class="w-5 h-5 text-primary"></i>
+              </div>
+              <h3 class="ml-3 text-xl font-semibold">心脏外科专家</h3>
+            </div>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="w-5 h-5 text-primary mt-0.5 mr-2"
+                ></i>
+                <span>成功完成300+例高难度心脏手术，手术成功率达99.2%</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="w-5 h-5 text-primary mt-0.5 mr-2"
+                ></i>
+                <span>创新研发"微创心肌修复术"，显著降低患者术后恢复时间</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="w-5 h-5 text-primary mt-0.5 mr-2"
+                ></i>
+                <span>主导建立医院心脏重症监护标准化流程，挽救无数生命</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Arctic Military Doctor -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 card-hover"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center"
+              >
+                <i data-lucide="shield" class="w-5 h-5 text-secondary"></i>
+              </div>
+              <h3 class="ml-3 text-xl font-semibold">极北军医</h3>
+            </div>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span
+                  >参与极地医疗救援队，在极端环境下成功救治多名冻伤患者</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span>建立极寒地区创伤急救培训体系，提升区域医疗应对能力</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span
+                  >作为医疗顾问参与边境医疗设施建设，改善偏远地区医疗条件</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Character Traits -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+          <i data-lucide="user-check" class="w-6 h-6 mr-2 text-secondary"></i>
+          独特个性与细节
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Personality Traits -->
+          <div class="bg-white p-5 rounded-lg border border-gray-100">
+            <h3 class="font-semibold text-lg mb-3 text-primary">性格特质</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i
+                  data-lucide="star"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span>表面高冷，实则深情专一，对信任的人极度真诚</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="star"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span>超强责任心，工作中追求完美，有轻微强迫症倾向</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="star"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span
+                  >对细节把控严格，手术器械摆放位置固定，不容许任何偏差</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Likes & Dislikes -->
+          <div class="bg-white p-5 rounded-lg border border-gray-100">
+            <h3 class="font-semibold text-lg mb-3 text-primary">饮食偏好</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i
+                  data-lucide="apple"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span>极度热爱甜食，办公室抽屉常备巧克力和马卡龙</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="banana"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span>严格忌口胡萝卜，任何含胡萝卜的食物都拒绝食用</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="coffee"
+                  class="w-5 h-5 text-secondary mt-0.5 mr-2"
+                ></i>
+                <span
+                  >每天必须喝两杯美式咖啡提神，对咖啡温度要求精确到65°C</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Background Story -->
+          <div class="bg-white p-5 rounded-lg border border-gray-100">
+            <h3 class="font-semibold text-lg mb-3 text-primary">特殊身份</h3>
+            <p class="text-sm">
+              黎深医生的真实身份是来自菲罗斯星的永恒先知，肩负着守护宇宙平衡的使命。他以人类医生的身份行走世间，用医学知识拯救生命，同时暗中处理星际事务。他的深黄绿色眼睛能洞察人心，这也是他能成为顶尖心脏外科医生的秘密之一。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Working Scene -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+          <i data-lucide="activity" class="w-6 h-6 mr-2 text-secondary"></i>
+          工作场景
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img
+            src="https://generate-image.com/黎深-手术"
+            alt="anime style illustration of a young male doctor performing heart surgery, wearing black shirt and surgical mask, focused expression, operating room with medical equipment, manga art style"
+            class="w-full h-auto rounded-lg shadow-sm object-cover"
+          />
+          <img
+            src="https://generate-image.com/黎深-菲罗斯星"
+            alt="anime style portrait of a young man with black hair and deep yellow-green eyes, wearing futuristic medical attire, standing on a starry planet with alien architecture, manga art style"
+            class="w-full h-auto rounded-lg shadow-sm object-cover"
+          />
+        </div>
+      </section>
+
+      <!-- Quote Section -->
+      <section class="mb-12">
+        <div
+          class="bg-primary/10 p-6 md:p-8 rounded-lg border-l-4 border-primary"
+        >
+          <blockquote class="text-lg md:text-xl italic">
+            "在我看来，生命就像精密的手术，每一个细节都至关重要。无论是在手术台上还是在星际之间，我都会坚守自己的使命，守护每一份信任。"
+          </blockquote>
+          <footer class="mt-4 text-right font-semibold text-primary">
+            — 黎深
+          </footer>
+        </div>
+      </section>
+
+      <!-- Recognition -->
+      <section class="text-center">
+        <div
+          class="inline-block bg-secondary text-white px-6 py-3 rounded-lg font-bold text-lg"
+        >
+          <i data-lucide="trophy" class="w-5 h-5 mr-2"></i>
+          表彰决定：授予黎深医生「6月杰出医疗贡献奖」
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-6 text-center">
+      <p>© 2025 Akso医院 版权所有 | 表彰名单系列报道</p>
+    </footer>
+
+    <script>
+      // Initialize Lucide icons
+      document.addEventListener('DOMContentLoaded', () => {
+        window.lucide?.createIcons()
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+- this is a hono.js project
+- runtime is cloudflare workers
+- use Clean Code architecture
+- use `typescript`
+- for type def, use `type` not `interface`
+- use named exports
+- for functions, always use typed object as input parameter, type it inline
+- use `clsx` for conditional class names
+- for React components, use `className` prop for styling
+- use `function` over `const` for React components and functions when possible
+- do not use memoization, do not use `useCallback`, `useMemo`, etc

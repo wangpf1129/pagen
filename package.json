@@ -1,0 +1,41 @@
+{
+	"name": "pagen",
+	"type": "module",
+	"scripts": {
+		"dev:wrangler": "wrangler dev --remote",
+		"dev:wrangler:local": "wrangler dev",
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "$npm_execpath run build && vite preview",
+		"deploy": "$npm_execpath run build && wrangler deploy",
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"db:push": " drizzle-kit push",
+		"db:studio": " drizzle-kit studio"
+	},
+	"dependencies": {
+		"@ai-sdk/openai": "^2.0.72",
+		"@hono/standard-validator": "^0.1.5",
+		"@openrouter/ai-sdk-provider": "^1.2.0",
+		"@scalar/hono-api-reference": "^0.9.18",
+		"ai": "^5.0.44",
+		"dotenv": "^17.2.2",
+		"drizzle-orm": "^0.44.5",
+		"hono": "^4.9.6",
+		"hono-openapi": "^1.0.7",
+		"slug": "^11.0.0",
+		"zod": "^4.1.7",
+		"zod-to-json-schema": "^3.24.6"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "^1.2.3",
+		"@cloudflare/workers-types": "^4.20250911.0",
+		"@types/node": "^24.3.1",
+		"@types/slug": "^5.0.9",
+		"drizzle-kit": "^0.31.4",
+		"tsx": "^4.20.5",
+		"vite": "^6.3.5",
+		"vite-plugin-mkcert": "^1.17.8",
+		"vite-ssr-components": "^0.5.1",
+		"wrangler": "^4.17.0"
+	}
+}

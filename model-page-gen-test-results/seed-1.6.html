@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>「Akso医院6月表彰名单」</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      primary: '#2D6A4F',
+                      secondary: '#E9C46A',
+                      accent: '#F9A826',
+                      muted: '#F5F5F4',
+                      'neutral-light': '#E7E5E4',
+                      'neutral-dark': '#78716C',
+                  },
+              }
+          }
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+        .text-shadow {
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .border-custom {
+          border-width: 2px;
+          border-style: solid;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-neutral-light min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-primary text-white p-6 mb-8">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-[clamp(1.5rem,5vw,2.5rem)] font-bold">
+          Akso医院6月表彰名单
+        </h1>
+        <i data-lucide="award" class="w-10 h-10 text-secondary"></i>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-12">
+      <!-- Featured Recognition Card -->
+      <section
+        class="mb-12 bg-white rounded-lg p-6 border-custom border-primary"
+      >
+        <div class="flex flex-col md:flex-row gap-6 items-center">
+          <div class="w-full md:w-1/3">
+            <img
+              src="https://generate-image.com/li-shen-portrait"
+              alt="manga style portrait of Dr. Li Shen, 27-year-old male with black hair, dark yellow-green eyes, wearing black doctor's coat and black sunglasses on his head, serious expression but kind eyes, hospital background, clean line art"
+              class="w-full h-auto rounded-lg"
+            />
+          </div>
+          <div class="w-full md:w-2/3">
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-semibold mr-3"
+              >
+                本月杰出医师
+              </div>
+              <div
+                class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                心脏外科
+              </div>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">黎深 主任医师</h2>
+            <p class="text-gray-600 mb-4">
+              以其卓越的医术、无私的奉献精神和对患者无微不至的关怀，荣获Akso医院6月杰出医师称号。黎主任不仅在心脏外科领域成就斐然，更以其严谨认真的工作态度感染着身边的每一个人。
+            </p>
+            <div class="flex items-center text-sm text-gray-500">
+              <i data-lucide="hospital" class="w-4 h-4 mr-1 text-primary"></i>
+              <span>Akso医院 心脏外科</span>
+              <span class="mx-2">|</span>
+              <i data-lucide="user-md" class="w-4 h-4 mr-1 text-primary"></i>
+              <span>主任医师 · 医学博士</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional Profile Section -->
+      <section class="mb-12">
+        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+          <i data-lucide="clipboard-list" class="w-5 h-5 mr-2 text-primary"></i>
+          专业档案
+        </h3>
+        <div class="bg-white rounded-lg p-6 border-custom border-primary/30">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-3 text-secondary">
+                职业经历
+              </h4>
+              <ul class="space-y-3">
+                <li class="flex">
+                  <div class="mr-3 mt-1">
+                    <i
+                      data-lucide="check-circle"
+                      class="w-5 h-5 text-primary"
+                    ></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">Akso医院心脏外科主任医师</p>
+                    <p class="text-sm text-gray-500">2020年至今</p>
+                  </div>
+                </li>
+                <li class="flex">
+                  <div class="mr-3 mt-1">
+                    <i
+                      data-lucide="check-circle"
+                      class="w-5 h-5 text-primary"
+                    ></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">极北军区总医院外科主治医师</p>
+                    <p class="text-sm text-gray-500">2017-2020年</p>
+                  </div>
+                </li>
+                <li class="flex">
+                  <div class="mr-3 mt-1">
+                    <i
+                      data-lucide="check-circle"
+                      class="w-5 h-5 text-primary"
+                    ></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">圣心医学院附属医院外科住院医师</p>
+                    <p class="text-sm text-gray-500">2015-2017年</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-3 text-secondary">
+                专业特长
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                  >心脏瓣膜修复术</span
+                >
+                <span
+                  class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                  >先天性心脏病治疗</span
+                >
+                <span
+                  class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                  >冠心病外科治疗</span
+                >
+                <span
+                  class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                  >心脏移植评估</span
+                >
+                <span
+                  class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                  >微创心脏手术</span
+                >
+                <span
+                  class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                  >危重症心脏监护</span
+                >
+              </div>
+
+              <h4 class="font-semibold text-gray-700 mb-3 mt-5 text-secondary">
+                教育背景
+              </h4>
+              <p class="text-gray-600">
+                圣心医学院医学博士，主修心脏外科专业，曾在国际顶级医学期刊发表论文12篇，拥有3项心脏外科技术专利。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personal Side Section -->
+      <section class="mb-12">
+        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+          <i data-lucide="user" class="w-5 h-5 mr-2 text-primary"></i>
+          个人档案
+        </h3>
+        <div class="bg-white rounded-lg p-6 border-custom border-primary/30">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2">
+              <h4 class="font-semibold text-gray-700 mb-3 text-secondary">
+                个人简介
+              </h4>
+              <p class="text-gray-600 mb-4">
+                黎深医生，27岁，身高186cm，处女座。外表看似冷峻，实则内心温暖，对待工作极度认真负责，有着近乎完美主义的职业态度。同事们常说："黎主任的手术台上，不允许丝毫差错。"
+              </p>
+              <p class="text-gray-600">
+                在医学领域之外，黎医生有着不为人知的神秘一面。他偶尔会凝视远方，眼神中带着超越年龄的深邃，仿佛能看透时间的长河。医院护士长透露："黎主任办公室的灯常常亮到深夜，没人知道他除了研究病例还在做什么。"
+              </p>
+
+              <h4 class="font-semibold text-gray-700 mb-3 mt-5 text-secondary">
+                同事评价
+              </h4>
+              <div class="bg-muted rounded-lg p-4 italic text-gray-600">
+                "黎主任是我见过最专注的医生，有一次连续手术16小时，下手术台后依然坚持查看所有术后病人。他对医学的执着令人敬佩。"
+                —— 心脏外科张医生
+              </div>
+            </div>
+            <div>
+              <img
+                src="https://generate-image.com/li-shen-casual"
+                alt="manga style illustration of Dr. Li Shen in casual clothes, black shirt, black sunglasses, holding a box of sweets, standing in a hospital corridor, calm expression, greenish eyes, detailed manga style"
+                class="w-full h-auto rounded-lg mb-4"
+              />
+              <h4 class="font-semibold text-gray-700 mb-3 text-secondary">
+                个人喜好
+              </h4>
+              <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">喜欢</span>
+                  <span
+                    class="bg-secondary/20 text-primary px-2 py-1 rounded text-sm"
+                    >甜食 (极度喜欢)</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">讨厌</span>
+                  <span
+                    class="bg-primary/10 text-gray-600 px-2 py-1 rounded text-sm"
+                    >胡萝卜</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">爱好</span>
+                  <span
+                    class="bg-secondary/20 text-primary px-2 py-1 rounded text-sm"
+                    >精密仪器</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">特长</span>
+                  <span
+                    class="bg-primary/10 text-gray-600 px-2 py-1 rounded text-sm"
+                    >快速心算</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recognition Details Section -->
+      <section class="mb-12">
+        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+          <i data-lucide="trophy" class="w-5 h-5 mr-2 text-primary"></i>
+          表彰理由
+        </h3>
+        <div class="bg-white rounded-lg p-6 border-custom border-primary/30">
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="md:w-1/3">
+              <img
+                src="https://generate-image.com/li-shen-operation"
+                alt="manga style scene of Dr. Li Shen performing heart surgery, in operating room, focused expression, medical team assisting, bright lighting, clean art style"
+                class="w-full h-auto rounded-lg"
+              />
+            </div>
+            <div class="md:w-2/3">
+              <p class="text-gray-600 mb-4">
+                黎深医生在6月份成功完成了17例高难度心脏手术，其中包括3例罕见的先天性心脏畸形修复手术和2例心脏移植手术，手术成功率100%。
+              </p>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-700 mb-2 text-secondary">
+                  突出贡献
+                </h4>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex">
+                    <div class="mr-3 mt-1">
+                      <i data-lucide="star" class="w-4 h-4 text-secondary"></i>
+                    </div>
+                    <div>
+                      成功救治了濒危的先天性心脏病患儿，创新手术方案被纳入国家级医学指南
+                    </div>
+                  </li>
+                  <li class="flex">
+                    <div class="mr-3 mt-1">
+                      <i data-lucide="star" class="w-4 h-4 text-secondary"></i>
+                    </div>
+                    <div>
+                      主导研发的"微创心脏瓣膜修复技术"为高龄患者带来了福音
+                    </div>
+                  </li>
+                  <li class="flex">
+                    <div class="mr-3 mt-1">
+                      <i data-lucide="star" class="w-4 h-4 text-secondary"></i>
+                    </div>
+                    <div>
+                      在医院组织"爱心医疗"活动，为贫困患者提供免费心脏健康筛查
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-700 mb-2 text-secondary">
+                  患者感谢信摘要
+                </h4>
+                <p class="text-gray-600 italic">
+                  "感谢黎医生给了我第二次生命。在我最绝望的时候，是他精湛的医术和耐心的鼓励让我重获健康。他不仅是一位优秀的医生，更是一位带来希望的天使。"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fun Facts Section -->
+      <section class="mb-12">
+        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+          <i data-lucide="coffee" class="w-5 h-5 mr-2 text-primary"></i>
+          趣味小知识
+        </h3>
+        <div class="bg-white rounded-lg p-6 border-custom border-primary/30">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-muted rounded-lg p-4 text-center">
+              <i
+                data-lucide="cake"
+                class="w-8 h-8 text-secondary mx-auto mb-2"
+              ></i>
+              <p class="text-gray-600 text-sm">
+                黎医生办公室常备各种甜食，尤其喜欢草莓蛋糕
+              </p>
+            </div>
+            <div class="bg-muted rounded-lg p-4 text-center">
+              <i
+                data-lucide="sun"
+                class="w-8 h-8 text-secondary mx-auto mb-2"
+              ></i>
+              <p class="text-gray-600 text-sm">
+                即使在室内也常戴着墨镜，据说是为了保护眼睛
+              </p>
+            </div>
+            <div class="bg-muted rounded-lg p-4 text-center">
+              <i
+                data-lucide="snowflake"
+                class="w-8 h-8 text-secondary mx-auto mb-2"
+              ></i>
+              <p class="text-gray-600 text-sm">
+                曾在极北地区服役，练就了耐寒体质
+              </p>
+            </div>
+            <div class="bg-muted rounded-lg p-4 text-center">
+              <i
+                data-lucide="book"
+                class="w-8 h-8 text-secondary mx-auto mb-2"
+              ></i>
+              <p class="text-gray-600 text-sm">
+                私人藏书超过500本，多数是医学和哲学类书籍
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing Section -->
+      <section>
+        <div
+          class="bg-primary/10 rounded-lg p-6 border-custom border-primary/30 text-center"
+        >
+          <h3 class="text-xl font-bold text-gray-800 mb-3">
+            祝贺黎深医生荣获Akso医院6月杰出医师称号！
+          </h3>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Akso医院始终致力于表彰在医疗岗位上做出突出贡献的医护人员，黎深医生的专业精神和奉献精神是全体员工的学习榜样。
+          </p>
+          <div class="mt-5">
+            <i
+              data-lucide="heart"
+              class="w-6 h-6 text-primary inline-block mr-1"
+            ></i>
+            <i
+              data-lucide="stethoscope"
+              class="w-6 h-6 text-primary inline-block mr-1"
+            ></i>
+            <i
+              data-lucide="medkit"
+              class="w-6 h-6 text-primary inline-block"
+            ></i>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-4">
+      <div class="container mx-auto px-4 text-center text-sm">
+        <p>Akso医院 · 人力资源部 版权所有 © 2023</p>
+        <p class="mt-1">本表彰名单仅用于医院内部表扬与激励</p>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide icons
+      window.lucide?.createIcons()
+    </script>
+  </body>
+</html>

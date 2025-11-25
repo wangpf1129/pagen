@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>「Akso医院6月表彰名单」</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      primary: '#2e7d32',   // 深绿色（符合黎深的深色系装扮）
+                      secondary: '#ffeb3b', // 亮黄色（对应他的黄绿眼睛与甜食偏好）
+                      neutral: '#f5f5f5',   // 浅灰背景
+                      text-dark: '#212121'  // 深灰文字
+                  }
+              }
+          }
+      }
+      window.lucide?.createIcons()
+    </script>
+  </head>
+  <body class="bg-neutral text-text-dark font-sans">
+    <div class="container mx-auto p-4 max-w-4xl">
+      <!-- 医院表彰头部 -->
+      <header class="flex items-center justify-center md:justify-start mb-8">
+        <i data-lucide="hospital" class="w-12 h-12 text-primary mr-4"></i>
+        <h1 class="text-2xl md:text-3xl font-bold text-primary">
+          Akso医院6月表彰名单
+        </h1>
+      </header>
+
+      <!-- 黎深个人信息卡片 -->
+      <section
+        class="bg-white rounded-lg shadow-sm p-6 mb-8 flex flex-col md:flex-row items-center"
+      >
+        <img
+          src="https://generate-image.com/li-shen-portrait"
+          alt="anime style portrait of Li Shen, 27-year-old with black hair, dark yellow-green eyes, wearing black shirt and sunglasses, serious expression with subtle gentleness, Akso Hospital logo in background, manga art style"
+          class="w-36 h-36 rounded-full mx-auto md:mx-0 md:mr-6 mb-4 md:mb-0"
+        />
+        <div class="text-center md:text-left">
+          <h2 class="text-xl md:text-2xl font-bold text-primary mb-2">黎深</h2>
+          <p class="text-gray-600 mb-4">心脏外科主任医师 / 极北军区特聘军医</p>
+          <div
+            class="flex flex-wrap gap-4 justify-center md:justify-start text-gray-700"
+          >
+            <span class="flex items-center">
+              <i data-lucide="user" class="w-5 h-5 text-secondary mr-1"></i
+              >27岁·处女座
+            </span>
+            <span class="flex items-center">
+              <i data-lucide="ruler" class="w-5 h-5 text-secondary mr-1"></i
+              >186cm
+            </span>
+            <span class="flex items-center">
+              <i
+                data-lucide="briefcase-medical"
+                class="w-5 h-5 text-secondary mr-1"
+              ></i
+              >从医5年
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 表彰核心理由 -->
+      <section class="mb-8">
+        <h3
+          class="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center"
+        >
+          <i data-lucide="star" class="w-6 h-6 text-secondary mr-2"></i>
+          表彰理由：「双身份守护者」的责任与温度
+        </h3>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          在Akso医院，黎深是心脏外科的「定海神针」——连续3年保持心脏手术100%成功率，曾主导完成<mark
+            class="bg-secondary px-1 rounded"
+            >12小时复杂先心病根治术</mark
+          >，挽救了17岁先天性心脏病患者的生命。他的手术台永远「分毫不差」：镊子放在左数第三格，纱布叠成标准正方形，缝合线长度精确到毫米——这份「强迫症」，是他对生命的极致尊重。
+        </p>
+        <img
+          src="https://generate-image.com/li-shen-surgery"
+          alt="Li Shen performing heart surgery in Akso Hospital, wearing surgical gown and gloves, focused eyes, surgical lights above, medical team assisting, manga style with detailed equipment"
+          class="w-full rounded-lg mb-4"
+        />
+        <p class="text-gray-700 leading-relaxed">
+          鲜为人知的是，黎深还有另一重身份——<strong class="text-primary"
+            >极北军区特聘军医</strong
+          >。去年冬天，他主动请缨前往零下40℃的北部战区，在雪地中搭建临时医疗点，连续72小时未合眼，成功救治23名因冻伤和枪伤休克的战士。战士们说：「黎医生的手冻得通红，却还在帮我们暖输液管——他的温度，比任何暖炉都管用。」
+        </p>
+      </section>
+
+      <!-- 性格反差萌细节 -->
+      <section class="bg-gray-50 rounded-lg p-6 mb-8">
+        <h3
+          class="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center"
+        >
+          <i data-lucide="cookie" class="w-6 h-6 text-secondary mr-2"></i>
+          藏在「生人勿进」下的可爱真相
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-2">「强迫症」的温柔</h4>
+            <p class="text-gray-700 leading-relaxed">
+              同事们都知道，黎主任的办公室是「全院最整齐的角落」：病历本按就诊日期排列成直线，钢笔必须放在笔筒右侧45°，甚至连抽屉里的甜食盒都要贴好标签——「草莓蛋糕」「巧克力曲奇」「柠檬布丁」，分类比手术器械还清楚。「他说，整齐能让脑子更清醒，才能更好救⼈。」护士小周笑着说。
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-2">甜食控的「小秘密」</h4>
+            <p class="text-gray-700 leading-relaxed">
+              黎深的「反差萌」还藏在食堂——他会绕路避开有胡萝卜的窗口，却会在下午三点准时去楼下便利店买草莓蛋糕；值班时会把藏在白大褂口袋里的巧克力分给加班的实习生，说「甜食能补充体力，别让低血糖影响手术」。上次护士节，他甚至亲手做了曲奇分给大家——虽然形状都是标准的正方形，但甜到心里的味道，让所有人都记住了这个「严肃的甜食爱好者」。
+            </p>
+          </div>
+        </div>
+        <img
+          src="https://generate-image.com/li-shen-military"
+          alt="Li Shen as northern military doctor, standing in snow with medical kit, black military uniform, serious yet compassionate expression, snowflakes falling around, manga art style"
+          class="w-full rounded-lg mt-6"
+        />
+      </section>
+
+      <!-- 同事评价 -->
+      <section class="mb-8">
+        <h3
+          class="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center"
+        >
+          <i data-lucide="users" class="w-6 h-6 text-secondary mr-2"></i>
+          同事眼中的「黎大神」
+        </h3>
+        <div class="space-y-4">
+          <blockquote class="bg-white rounded-lg p-4 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-2">
+              「黎主任的手术台永远是最让人安心的——他会在术前帮我们检查每一件器械，连手套的大小都要确认三遍。有次我紧张得手抖，他把自己的热咖啡塞给我，说‘稳住，你比你想象中更厉害’。」
+            </p>
+            <cite class="text-sm text-gray-500">- 外科护士 小周</cite>
+          </blockquote>
+          <blockquote class="bg-white rounded-lg p-4 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-2">
+              「我第一次上手术台时犯了错，以为会被骂，结果黎主任只是把我叫到办公室，拿出一块草莓蛋糕说‘吃点甜的，下次就不会慌了’。后来才知道，那是他特意留的——因为他说，‘年轻人犯错，需要的是鼓励，不是指责’。」
+            </p>
+            <cite class="text-sm text-gray-500">- 实习医生 小陆</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- 结尾总结 -->
+      <footer class="bg-primary text-white rounded-lg p-6 text-center">
+        <i data-lucide="heart-pulse" class="w-10 h-10 mx-auto mb-4"></i>
+        <p class="text-lg leading-relaxed mb-2">
+          好的医生，是手术台上的「 precision machine 」，也是患者与同事心中的「
+          warm light 」。
+        </p>
+        <p class="text-sm md:text-base">
+          Akso医院谨以这份表彰，致敬黎深主任——用「双身份」守护生命，用「强迫症」诠释专业，用「甜食」传递温暖。<br />
+          他不仅是「永恒先知」，更是我们身边最真实的「生命守护者」。
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
